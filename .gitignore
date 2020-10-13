@@ -1,2 +1,32 @@
+.DS_Store
+
+# For testing
+certs
+
+# Dependencies
 node_modules
+yarn-error.log
+
+# Environmnet
 .env
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# IDEs
+.idea
+.vscode/
+
+# Distributables
+dist/
+.nyc_output/
+.cache
+.mocha-puppeteer
+
+# Junk
+old/
+*.OLD
+
+# ONLY DO THIS FOR NPM PACKAGES - anything we load from Github direclty needs the lib folder
+# TypeScript compiled files
+lib/

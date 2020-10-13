@@ -1,2 +1,3 @@
-# fruitful-api-client
+# cig-api-client
+
 Javascript API client
