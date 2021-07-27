@@ -10,27 +10,6 @@ const networkInterfaces = os.networkInterfaces();
 const clientIp = `eth0` in networkInterfaces && Array.isArray(networkInterfaces.eth0) ? networkInterfaces.eth0[0] : null;
 const userAgent = `CigApiClient/${packageJson.version}`;
 
-// Do something with request error
-const requestErrorHandler = error => {
-	return Promise.reject(error.data ? error.data : error);
-};
-
-// Do something with response error
-const responseErrorHandler = error => {
-	const { response } = error || {};
-	const {
-		data: { message: errorMessage },
-	} = response || { data: {} };
-
-	// Ignore 40s which are just bad logins but not errors
-	// if (String(status).startsWith('5')) {
-	// 	app.debug('cig:errors:api')(`API Error: %s`, error);
-	// }
-
-	// return Promise.reject(response.data || error);
-	return Promise.reject(error);
-};
-
 export default (apiUrl: string, apiUser: string, token: string): AxiosInstance => {
 	const axiosConfig: AxiosRequestConfig = {
 		baseURL: apiUrl,
@@ -53,16 +32,6 @@ export default (apiUrl: string, apiUser: string, token: string): AxiosInstance =
 	};
 
 	const axiosClient = axios.create(axiosConfig);
-
-	axiosClient.interceptors.request.use(
-		// request => requestHandler(request, requestOptions),
-		error => requestErrorHandler(error)
-	);
-
-	axiosClient.interceptors.response.use(
-		// response => responseHandler(response, requestOptions),
-		error => responseErrorHandler(error)
-	);
 
 	return axiosClient;
 };
