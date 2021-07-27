@@ -1,15 +1,10 @@
 {
-  "name": "cig-api-client",
-  "version": "2.0.0",
+  "name": "@itcig/cig-api-client",
+  "version": "2.0.2",
   "description": "Javascript SDK for connecting CIG API",
-  "main": "lib",
-  "types": "lib/",
-  "engines": {
-    "node": ">=10.0"
-  },
   "author": {
-    "name": "Brad Ash",
-    "email": "bradley.ash@gmail.com"
+    "name": "ITCIG",
+    "email": "it@capinfogroup.com"
   },
   "license": "MIT",
   "repository": {
@@ -24,7 +19,26 @@
     "api",
     "axios"
   ],
-  "bundleDependencies": [],
+  "main": "lib/",
+  "types": "lib/",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "*.d.ts",
+    "*.js"
+  ],
+  "engines": {
+    "node": "^12.0.0",
+    "yarn": ">= 0.18.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "alex": "alex .",
     "changelog": "npx auto-changelog -p --commit-limit false --unreleased --template keepachangelog",
@@ -54,20 +68,17 @@
       "pre-commit": "tsc --noEmit && lint-staged"
     }
   },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "json-bigint": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "path": "^0.12.7"
+    "object-assign-deep": "^0.4.0",
+    "path": "^0.12.7",
+    "qs": "^6.10.1"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/config": "^0.0.36",
     "@types/debug": "^4.1.5",
     "@types/expect": "^24.3.0",
@@ -75,6 +86,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/lodash": "^4.14.149",
     "@types/node": "^14.10.1",
+    "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "alex": "^8.1.1",
