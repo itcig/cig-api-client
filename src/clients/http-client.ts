@@ -1,13 +1,11 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import JSONbig from 'json-bigint';
-import os from 'os';
 import https from 'https';
+import ip from "ip";
 
 const packageJson = require('../../package.json');
 
-const networkInterfaces = os.networkInterfaces();
-
-const clientIp = `eth0` in networkInterfaces && Array.isArray(networkInterfaces.eth0) ? networkInterfaces.eth0[0] : null;
+const clientIp = ip.address();
 const userAgent = `CigApiClient/${packageJson.version}`;
 
 export default (apiUrl: string, apiUser: string, token: string): AxiosInstance => {
