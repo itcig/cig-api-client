@@ -1,6 +1,6 @@
 {
   "name": "@itcig/cig-api-client",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Javascript SDK for connecting CIG API",
   "author": {
     "name": "ITCIG",
