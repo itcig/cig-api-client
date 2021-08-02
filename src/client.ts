@@ -25,7 +25,7 @@ const client: ApiClient = (_apiUrl?: string, _apiUser?: string, _apiKey?: string
 
 			// Make short-expiring access token for authenticating API request
 			const token: string = signRequest(apiKey, apiSecret);
-console.log(token);
+
 			// Create instance of HTTP or Socket (coming soon) client to make requests
 			const requestClient: RequestClient = httpClient(apiUrl, apiUser, token);
 
