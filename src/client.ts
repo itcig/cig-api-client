@@ -19,15 +19,15 @@ const client: ApiClient = (_apiUrl?: string, _apiUser?: string, _apiKey?: string
 	const apiKey: string = _apiKey || configDefaults.apiKey;
 	const apiSecret: string = _apiSecret || configDefaults.apiSecret;
 
-	// Make short-expiring access token for authenticating API request
-	const token: string = signRequest(apiKey, apiSecret);
-
-	// Create instance of HTTP or Socket (coming soon) client to make requests
-	const requestClient: RequestClient = httpClient(apiUrl, apiUser, token);
-
 	const handler: ProxyHandler<any> = {
 		get(target: any, prop: PropertyKey): any {
 			const controller = prop.toString();
+
+			// Make short-expiring access token for authenticating API request
+			const token: string = signRequest(apiKey, apiSecret);
+console.log(token);
+			// Create instance of HTTP or Socket (coming soon) client to make requests
+			const requestClient: RequestClient = httpClient(apiUrl, apiUser, token);
 
 			return Object.assign(
 				{},
