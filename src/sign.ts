@@ -11,7 +11,7 @@ const signRequest = (key: string, secret: string): string =>
 		},
 		secret,
 		{
-			expiresIn: 10000, // Request is only good for 10 seconds to prevent replay
+			expiresIn: 30, // Request is only good for 30 seconds to prevent replay
 		}
 	);
 
